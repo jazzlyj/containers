@@ -21,7 +21,7 @@ Terraform file: _registry.tf_
 
 Create and set both context and namespace to _docker-registry_
 
-See [contexts-and-namespaces](./kubernetes.md#contexts-and-namespaces)
+See [contexts-and-namespaces](https://github.com/jazzlyj/k8s/blob/main/K8sCommands.md#contexts-and-namespaces)
 
 # Step 2 Creating files for authentication
 
@@ -305,11 +305,12 @@ curl 10.244.0.8:80
 
 Output looks like this:
 
-    sjcvl-jaytest1 03:07:29 ~{11} kubectl get pods -o wide
+    jt1 03:07:29 ~{11} kubectl get pods -o wide
     NAME                                      READY   STATUS    RESTARTS   AGE     IP           NODE       NOMINATED NODE   READINESS GATES
     docker-registry-pod-docker-registry-dev   1/1     Running   0          3h38m   10.244.0.7   minikube   <none>           <none>
     nginx-pod                                 1/1     Running   0          3m43s   10.244.0.8   minikube   <none>           <none>
-    sjcvl-jaytest1 03:07:34 ~{12} minikube ssh
+    
+    jt1 03:07:34 ~{12} minikube ssh
     Last login: Wed Mar 29 22:05:16 2023 from 192.168.49.1
     docker@minikube:~$ curl 10.244.0.8:80
     <!DOCTYPE html>
