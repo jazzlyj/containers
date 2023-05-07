@@ -206,6 +206,11 @@ Run this command:
 
 ```bash
 minikube ssh
+```
+Prompt looks like this: 
+    docker@minikube:~$ 
+
+```bash
 sudo mkdir -p /etc/docker/certs.d/docker-registry:5000; cd !$
 sudo vi ca.crt
 ```
@@ -222,7 +227,7 @@ docker login docker-registry:5000 -u dockerreguser -p dockerregpassword
 
 Output looks like this:
 
-    docker@minikube:/etc/docker/certs.d/docker-registry:5000$
+    docker@minikube:/etc/docker/certs.d/docker-registry:5000$ docker login docker-registry:5000 -u dockerreguser -p dockerregpassword
     WARNING! Using --password via the CLI is insecure. Use --password-stdin.
     WARNING! Your password will be stored unencrypted in /home/docker/.docker/config.json.
     Configure a credential helper to remove this warning. See
@@ -230,7 +235,9 @@ Output looks like this:
 
     Login Succeeded
 
-- Create a Secret of type _docker-registry_ which uses the credentials dockerreguser/dockerregpassword for enabling all the nodes in the cluster to authenticate with the private Docker registry.
+- Logout of the minikube host
+
+- Back on the working host; create a Secret of type _docker-registry_ which uses the credentials dockerreguser/dockerregpassword for enabling all the nodes in the cluster to authenticate with the private Docker registry.
 
 ```bash
  kubectl create secret docker-registry reg-cred-secret --docker-server=docker-registry:5000 --docker-username=dockerreguser --docker-password=dockerregpassword
