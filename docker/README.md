@@ -247,6 +247,12 @@ Output looks like this:
 
     secret/reg-cred-secret created
 
+
+- Login to the minikube host
+```bash
+minikube ssh
+```
+
 - Push a custom image to the private Docker registry
 
 ```bash
@@ -280,7 +286,8 @@ Output looks like this:
     3af14c9a24c9: Pushed
     v1: digest: sha256:bfb112db4075460ec042ce13e0b9c3ebd982f93ae0be155496d050bb70006750 size: 1570
 
-- Exec a shell onto the docker-registry-pod and list contents of docker registry dir
+
+- From the working host (not the minikube host); exec a shell onto the docker-registry-pod and list contents of docker registry dir
 
 ```bash
 kubectl exec docker-registry-pod-docker-registry-dev -it -- sh
@@ -293,9 +300,10 @@ Output looks like this:
     / # ls /var/lib/registry/docker/registry/v2/repositories/
     mynginx
 
-- Create a pod that uses a docker image
+- Logout of the docker-registry pod exec-ed shell and create a pod that uses a docker image
 
 ```bash
+
 kubectl run nginx-pod --image=docker-registry:5000/mynginx:v1 --overrides='{ "apiVersion": "v1", "spec": { "imagePullSecrets": [{"name": "reg-cred-secret"}] } }'
 ```
 
