@@ -200,13 +200,13 @@ for x in $(kubectl get nodes -o jsonpath='{ $.items[*].status.addresses[?(@.type
 
 Output looks like this:
 
-_NOTE_: on minikube deploys ssh into minikube node and make the dir and copy the contents of the tls.crt file (noted above)
+_NOTE_: on minikube deploys, ssh into minikube node, make the dir and copy the contents of the tls.crt file (noted above)
 
 Run this command:
 
 ```bash
 minikube ssh
-sudo mkdir -p /etc/docker/certs.d/docker-registry:5000
+sudo mkdir -p /etc/docker/certs.d/docker-registry:5000; cd !$
 sudo vi ca.crt
 ```
 
