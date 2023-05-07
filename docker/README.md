@@ -37,6 +37,7 @@ Here access the registry using the name _docker-registry_.
 
 ```bash
 mkdir -p registry && cd "$_"
+mkdir certs
 ```
 
 - Create certs
