@@ -7,7 +7,7 @@ resource "kubernetes_persistent_volume_v1" "registry-pv-volume" {
   }
   spec {
     capacity           = {
-      storage          = "1Gi"
+      storage          = "10Gi"
     }
     access_modes       = ["ReadWriteMany"]
     # Need this or K8s (minikube) will try to dynamically create a pv for the pvc
@@ -45,7 +45,7 @@ resource "kubernetes_persistent_volume_claim_v1" "registry-pv-claim" {
     storage_class_name = "manual"
     resources {
       requests         = {
-        storage        = "1Gi"
+        storage        = "9Gi"
       }
     }
   }
