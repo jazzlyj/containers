@@ -354,4 +354,11 @@ Output looks like this:
     </body>
     </html>
 
+# Step 5 Access the registry externally
+- Setup port forwarding on the working host
+```bash
+kubectl port-forward --namespace docker-registry-dev service/docker-registry-service-docker-registry-dev 5000:5000
+```
+
+
 
