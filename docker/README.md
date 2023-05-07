@@ -102,7 +102,7 @@ Run this command:
 kubectl create secret tls certs-secret --cert=/path/to/src/terraform-docker-registry/registry/certs/tls.crt --key=/path/to/src/terraform-docker-registry/registry/certs/tls.key
 ```
 
-_NOTE_ - cant use ~, use full path
+_NOTE_ a) substitute /path/to/src/ for desired path and b) cant use "~", use full path
 
 Output looks like this:
 
